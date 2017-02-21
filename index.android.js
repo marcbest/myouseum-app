@@ -22,11 +22,17 @@ const onButtonPress = () => {
   //Alert.alert('Button has been pressed!');
   console.log('Button has been pressed')
 
-  fetch('http://10.0.2.2:3000/api/getafact/', {
-    method: 'GET',
-  });
+  // fetch('http://10.0.2.2:3000/api/getafact/A631886', {
+  //   method: 'GET',
+  // });
 
   // axios.get('http://127.0.0.1:3000/api/getafact/')
+
+  axios.get('http://10.0.2.2:3000/api/getafact/syrup jar')
+    .then(res => {
+      console.log(res.data)
+      Alert.alert(res.data);
+    })
 };
 
 exports.displayName = 'ButtonExample';
