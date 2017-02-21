@@ -13,28 +13,18 @@ import {
   View,
   Image,
   Button,
-  Alert
+  Alert,
+  TouchableHighlight
 } from 'react-native';
 
-const onButtonPress = () => {
-  //Alert.alert('Button has been pressed!');
-  console.log('Button has been pressed')
-};
-
-exports.displayName = 'ButtonExample';
-exports.framework = 'React';
-exports.title = '<Button>';
-exports.description = 'Simple React Native button component.';
-
-class UselessTextInput extends Component {
+class mYOUseumApp extends Component {
   constructor(props) {
-    console.log('test')
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
+  super(props);
+  this.state = { text: '' };
   }
+  async onSaveTopic() {
+    console.log(this.state.text)
 }
-
-export default class mYOUseumApp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -49,16 +39,17 @@ export default class mYOUseumApp extends Component {
           Insert item code:
         </Text>
         <TextInput
-          style={{height: 40, width: 250,  borderColor: 'gray', borderWidth: 1}}
+          style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
           onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
         />
+        <TouchableHighlight onPress={this.onSaveTopic.bind(this)} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Save
+          </Text>
+        </TouchableHighlight>
 
-        <Button
-          onPress={onButtonPress}
-          title="Press Me"
-          accessibilityLabel="See an informative alert"
-        />
-      </View>
+    </View>
     );
   }
 }
