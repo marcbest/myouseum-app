@@ -23,17 +23,17 @@ class UselessTextInput extends Component {
 
 export default class mYOUseumApp extends Component {
   render() {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
     return (
-      <Image source={pic} style={{width: 193, height: 110}}/>
       <View style={styles.container}>
+        <Image
+          //style={{width: 50, height: 50}}
+          //source={require('img/mueseum.png')}
+        />
         <Text style={styles.welcome}>
           mYOUseum
         </Text>
         <Text style={styles.instructions}>
-          Enter item ID to subscribe:
+          Insert item code:
         </Text>
         <TextInput
           style={{height: 40, width: 250,  borderColor: 'gray', borderWidth: 1}}
@@ -49,16 +49,17 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#34435E',
   },
   welcome: {
     fontSize: 40,
     textAlign: 'center',
     margin: 10,
+    color: '#F5FCFF'
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: '#F5FCFF',
     marginBottom: 5,
   },
 });
