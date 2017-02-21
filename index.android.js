@@ -52,7 +52,7 @@ class mYOUseumApp extends Component {
     if (appState === 'background') {
       PushNotification.localNotificationSchedule({
         message: "test notification!",
-        date: new Date(Date.now() + (15 * 1000)) // in 15 seconds
+        date: new Date(Date.now() + (5 * 1000)) // in 5 seconds
       });
       console.log('app is in background')
     }
@@ -61,7 +61,7 @@ class mYOUseumApp extends Component {
   async pushNotification(msg) {
     PushNotification.localNotificationSchedule({
       message: "test notification!",
-      date: new Date(Date.now() + (15 * 1000)) // in 15 seconds
+      date: new Date(Date.now() + (5 * 1000)) // in 5 seconds
     });
   }
 
