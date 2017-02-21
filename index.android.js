@@ -15,10 +15,18 @@ import {
   Button,
   Alert
 } from 'react-native';
+import axios from 'axios';
+
 
 const onButtonPress = () => {
   //Alert.alert('Button has been pressed!');
   console.log('Button has been pressed')
+
+  fetch('http://10.0.2.2:3000/api/getafact/', {
+    method: 'GET',
+  });
+
+  // axios.get('http://127.0.0.1:3000/api/getafact/')
 };
 
 exports.displayName = 'ButtonExample';
