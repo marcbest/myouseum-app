@@ -33,7 +33,7 @@ class mYOUseumApp extends Component {
 
     // axios.get('http://127.0.0.1:3000/api/getafact/')
 
-    axios.get('http://10.0.2.2:3000/api/getafact/syrup jar')
+    axios.get('http://10.0.2.2:3000/api/getafact/' + this.state.text)
       .then(res => {
         console.log(res.data)
         Alert.alert(res.data);
