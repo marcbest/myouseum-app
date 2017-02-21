@@ -14,31 +14,57 @@ import {
   Image,
   Button,
   Alert,
-  TouchableHighlight
+  TouchableHighlight,
+  AppState
 } from 'react-native';
 import axios from 'axios';
+import PushNotification from 'react-native-push-notification';
+import PushController from './app/PushController';
 
 class mYOUseumApp extends Component {
   constructor(props) {
   super(props);
+  this.handleAppStateChange = this.handleAppStateChange.bind(this);
   this.state = { text: '' };
   }
+
   async onSaveTopic() {
     console.log(this.state.text)
     console.log('Button has been pressed')
-
-    // fetch('http://10.0.2.2:3000/api/getafact/A631886', {
-    //   method: 'GET',
-    // });
-
-    // axios.get('http://127.0.0.1:3000/api/getafact/')
 
     axios.get('http://10.0.2.2:3000/api/getafact/' + this.state.text)
       .then(res => {
         console.log(res.data)
         Alert.alert(res.data);
+        this.pushNotification(res.data);
       })
-}
+  }
+
+  componentDidMount() {
+    AppState.addEventListener('change', this.handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this.handleAppStateChange);
+  }
+
+  handleAppStateChange(appState) {
+    if (appState === 'background') {
+      PushNotification.localNotificationSchedule({
+        message: "test notification!",
+        date: new Date(Date.now() + (15 * 1000)) // in 15 seconds
+      });
+      console.log('app is in background')
+    }
+  }
+
+  async pushNotification(msg) {
+    PushNotification.localNotificationSchedule({
+      message: "test notification!",
+      date: new Date(Date.now() + (15 * 1000)) // in 15 seconds
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -62,6 +88,7 @@ class mYOUseumApp extends Component {
             Save
           </Text>
         </TouchableHighlight>
+        <PushController/>
 
     </View>
     );
