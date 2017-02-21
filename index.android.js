@@ -25,7 +25,7 @@ class mYOUseumApp extends Component {
   constructor(props) {
   super(props);
   this.handleAppStateChange = this.handleAppStateChange.bind(this);
-  this.state = { text: '' };
+  this.state = { text: '', nextPush: '' };
   }
 
   async onSaveTopic() {
@@ -36,7 +36,8 @@ class mYOUseumApp extends Component {
       .then(res => {
         console.log(res.data)
         Alert.alert(res.data);
-        this.pushNotification(res.data);
+        // this.pushNotification(res.data);
+        this.state.nextPush = res.data;
       })
   }
 
@@ -60,7 +61,7 @@ class mYOUseumApp extends Component {
 
   async pushNotification(msg) {
     PushNotification.localNotificationSchedule({
-      message: "test notification!",
+      message: this.state.nextPush,
       date: new Date(Date.now() + (5 * 1000)) // in 5 seconds
     });
   }
