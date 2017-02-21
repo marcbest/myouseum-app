@@ -16,6 +16,7 @@ import {
   Alert,
   TouchableHighlight
 } from 'react-native';
+import axios from 'axios';
 
 class mYOUseumApp extends Component {
   constructor(props) {
@@ -24,6 +25,19 @@ class mYOUseumApp extends Component {
   }
   async onSaveTopic() {
     console.log(this.state.text)
+    console.log('Button has been pressed')
+
+    // fetch('http://10.0.2.2:3000/api/getafact/A631886', {
+    //   method: 'GET',
+    // });
+
+    // axios.get('http://127.0.0.1:3000/api/getafact/')
+
+    axios.get('http://10.0.2.2:3000/api/getafact/syrup jar')
+      .then(res => {
+        console.log(res.data)
+        Alert.alert(res.data);
+      })
 }
   render() {
     return (
