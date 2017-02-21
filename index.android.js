@@ -11,11 +11,24 @@ import {
   Text,
   TextInput,
   View,
-  Image
+  Image,
+  Button,
+  Alert
 } from 'react-native';
+
+const onButtonPress = () => {
+  //Alert.alert('Button has been pressed!');
+  console.log('Button has been pressed')
+};
+
+exports.displayName = 'ButtonExample';
+exports.framework = 'React';
+exports.title = '<Button>';
+exports.description = 'Simple React Native button component.';
 
 class UselessTextInput extends Component {
   constructor(props) {
+    console.log('test')
     super(props);
     this.state = { text: 'Useless Placeholder' };
   }
@@ -26,8 +39,8 @@ export default class mYOUseumApp extends Component {
     return (
       <View style={styles.container}>
         <Image
-          //style={{width: 50, height: 50}}
-          //source={require('img/mueseum.png')}
+          style={{width: 100, height: 100}}
+          source={{uri: 'https://s23.postimg.org/lm2k4lsmz/879678_200.png'}}
         />
         <Text style={styles.welcome}>
           mYOUseum
@@ -38,6 +51,12 @@ export default class mYOUseumApp extends Component {
         <TextInput
           style={{height: 40, width: 250,  borderColor: 'gray', borderWidth: 1}}
           onChangeText={(text) => this.setState({text})}
+        />
+
+        <Button
+          onPress={onButtonPress}
+          title="Press Me"
+          accessibilityLabel="See an informative alert"
         />
       </View>
     );
