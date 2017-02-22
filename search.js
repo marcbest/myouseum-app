@@ -41,7 +41,7 @@ class Search extends Component {
     axios.get('http://10.0.2.2:3000/api/getafact/' + this.state.text)
       .then(res => {
         console.log(res.data)
-        Alert.alert(res.data);
+        // Alert.alert(res.data);
         // this.pushNotification(res.data);
         this.state.nextPush = res.data;
       })
