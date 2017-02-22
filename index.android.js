@@ -20,7 +20,7 @@ import {
 
 import Search from './search';
 import Profile from './profile';
-import Home from './subscriptions';
+import Subscriptions from './subscriptions';
 import Discover from './discover';
 
 export default class mYOUseumApp extends Component {

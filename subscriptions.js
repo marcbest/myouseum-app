@@ -23,31 +23,14 @@ class Subscriptions extends Component {
   super(props);
   this.state = { text: '' };
   }
-  async onSaveTopic() {
-    console.log(this.state.text)
-    console.log('Button has been pressed')
-
-    // fetch('http://10.0.2.2:3000/api/getafact/A631886', {
-    //   method: 'GET',
-    // });
-
-    // axios.get('http://127.0.0.1:3000/api/getafact/')
-
-    axios.get('http://10.0.2.2:3000/api/getafact/' + this.state.text)
-      .then(res => {
-        console.log(res.data)
-        Alert.alert(res.data);
-      })
+  async onAddNewItem() {
+    //direct user back to search page
 }
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={{width: 100, height: 100}}
-          source={{uri: 'https://s23.postimg.org/lm2k4lsmz/879678_200.png'}}
-        />
-        <Text style={styles.welcome}>
-          Subscriptions
+        <Text style={styles.instructions}>
+          Curate your own exhibition to share your findings with friends and people nearby
         </Text>
     </View>
     );
