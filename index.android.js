@@ -44,14 +44,14 @@ export default class mYOUseumApp extends Component {
      return (
        <View style={styles.container}>
          <Navigator
-           initialRoute={{name: 'root'}}
+           initialRoute={{name: 'search'}}
            renderScene={this.renderScene.bind(this)}
          />
        </View>
      );
    }
  }
- 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

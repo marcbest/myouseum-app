@@ -27,6 +27,11 @@ class Search extends Component {
   this.handleAppStateChange = this.handleAppStateChange.bind(this);
   this.state = { text: '' };
   }
+  redirect(routeName, accessToken){
+    this.props.navigator.push({
+      name: routeName
+    });
+  }
 
   async onSaveTopic() {
     console.log(this.state.text)
@@ -68,9 +73,20 @@ class Search extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Navigator
-          initialRoute={{name: 'search'}}
-          renderScene={this.renderScene.bind(this)}
+        <Image
+          style={{width: 100, height: 100}}
+          source={{uri: 'https://s23.postimg.org/lm2k4lsmz/879678_200.png'}}
+        />
+        <Text style={styles.welcome}>
+          mYOUseum
+        </Text>
+        <Text style={styles.instructions}>
+          Insert item code:
+        </Text>
+        <TextInput
+          style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
         />
         <TouchableHighlight onPress={this.onSaveTopic.bind(this)} style={styles.button}>
           <Text style={styles.buttonText}>
@@ -78,19 +94,36 @@ class Search extends Component {
           </Text>
         </TouchableHighlight>
         <PushController/>
-
+        <Text style={{color: 'blue'}}
+          onPress={() => this.redirect('profile')}>
+          Profile
+        </Text>
+        <Text style={{color: 'blue'}}
+          onPress={() => this.redirect('discover')}>
+          Discover
+        </Text>
     </View>
-
     );
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    //justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#34435E',
+  },
+  welcome: {
+    fontSize: 40,
+    textAlign: 'center',
+    margin: 10,
+    color: '#F5FCFF'
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#F5FCFF',
+    marginBottom: 5,
   },
 });
-
 export default Search
