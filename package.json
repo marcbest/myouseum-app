@@ -10,7 +10,8 @@
     "axios": "^0.15.3",
     "react": "15.4.2",
     "react-native": "0.41.2",
-    "react-native-push-notification": "^2.2.1"
+    "react-native-push-notification": "^2.2.1",
+    "react-native-tab-view": "0.0.56"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

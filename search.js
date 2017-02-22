@@ -20,6 +20,7 @@ import {
 import axios from 'axios';
 import PushNotification from 'react-native-push-notification';
 import PushController from './app/PushController';
+// import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 
 class Search extends Component {
   constructor(props) {
@@ -97,20 +98,22 @@ class Search extends Component {
 					color="#7500FF"
 					accessibilityLabel="Learn more about this purple button"
 				/>
-				
         <PushController/>
-        <Text style={{color: 'blue'}}
-          onPress={() => this.redirect('profile')}>
-          Profile
-        </Text>
-        <Text style={{color: 'blue'}}
-          onPress={() => this.redirect('discover')}>
-          Discover
-        </Text>
-        <Text style={{color: 'blue'}}
-          onPress={() => this.redirect('subscriptions')}>
-          Subscriptions
-        </Text>
+
+        <View style={{marginTop: 200}}>
+          <Text style={{color: 'blue'}}
+            onPress={() => this.redirect('profile')}>
+            Profile
+          </Text>
+          <Text style={{color: 'blue'}}
+            onPress={() => this.redirect('discover')}>
+            Discover
+          </Text>
+          <Text style={{color: 'blue'}}
+            onPress={() => this.redirect('subscriptions')}>
+            Subscriptions
+          </Text>
+        </View>
     </View>
     );
   }
@@ -154,3 +157,4 @@ const styles = StyleSheet.create({
   },
 });
 export default Search
+
