@@ -77,27 +77,27 @@ class Search extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={{width: 100, height: 100}}
-          source={{uri: 'https://s23.postimg.org/lm2k4lsmz/879678_200.png'}}
-        />
-        <Text style={styles.welcome}>
-          mYOUseum
-        </Text>
+				<View style={styles.header}>
+					<Text style={styles.welcome}>
+						Myseum
+					</Text>
+				</View>
         <Text style={styles.instructions}>
           Insert item code:
         </Text>
         <TextInput
-          style={{height: 30, width:280, borderColor: 'white', borderWidth: 1, backgroundColor: 'white'}}
+          style={{height: 45, width:280, borderColor: 'black', borderWidth: 3, backgroundColor: 'white', marginBottom: 15}}
           onChangeText={(text) => this.setState({text})}
           underlineColorAndroid="white"
           value={this.state.text}
         />
-        <TouchableHighlight onPress={this.onSaveTopic.bind(this)} style={styles.button}>
-          <Text style={styles.buttonText}>
-            Save
-          </Text>
-        </TouchableHighlight>
+        <Button
+					onPress={this.onSaveTopic.bind(this)}
+					title="   Save   "
+					color="#7500FF"
+					accessibilityLabel="Learn more about this purple button"
+				/>
+				
         <PushController/>
         <Text style={{color: 'blue'}}
           onPress={() => this.redirect('profile')}>
@@ -121,18 +121,36 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#34435E',
+    backgroundColor: '#F9F9F9',
+  },
+  header: {
+    // flex: 1,
+    //justifyContent: 'center',
+		// flexDirection: 'row',
+		width: 400,
+    alignItems: 'center',
+    backgroundColor: '#F8FF00',
   },
   welcome: {
-    fontSize: 40,
+    fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
-    color: '#F5FCFF'
+    color: '#000000'
   },
   instructions: {
     textAlign: 'center',
-    color: '#F5FCFF',
+    color: '#000000',
+    marginBottom: 15,
+    fontSize: 25,
+    marginTop: 50
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#000000',
     marginBottom: 5,
+    fontSize: 25,
+    marginTop: 50
   },
 });
 export default Search
