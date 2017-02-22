@@ -88,7 +88,7 @@ class Search extends Component {
           Insert item code:
         </Text>
         <TextInput
-          style={{height: 40, width:200, borderColor: 'white', borderWidth: 1, backgroundColor: 'white'}}
+          style={{height: 30, width:280, borderColor: 'white', borderWidth: 1, backgroundColor: 'white'}}
           onChangeText={(text) => this.setState({text})}
           underlineColorAndroid="white"
           value={this.state.text}
@@ -106,6 +106,10 @@ class Search extends Component {
         <Text style={{color: 'blue'}}
           onPress={() => this.redirect('discover')}>
           Discover
+        </Text>
+        <Text style={{color: 'blue'}}
+          onPress={() => this.redirect('subscriptions')}>
+          Subscriptions
         </Text>
     </View>
     );

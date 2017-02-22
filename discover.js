@@ -8,6 +8,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  ListView,
   TextInput,
   View,
   Image,
@@ -41,7 +42,7 @@ class Discover extends Component {
     return (
       <View style={styles.container}>
       <TextInput
-        style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
+        style={{marginTop:20, height: 30, width:280, borderColor: 'gray', borderWidth: 1, backgroundColor: 'white'}}
         onChangeText={(text) => this.setState({text})}
         value={this.state.text}
       />
