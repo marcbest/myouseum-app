@@ -38,10 +38,11 @@ class Search extends Component {
     console.log(this.state.text)
     console.log('Button has been pressed')
 
-    axios.get('http://10.0.2.2:3000/api/getafact/' + this.state.text)
+    // axios.get('http://10.0.2.2:3000/api/getafact/' + this.state.text)
+    axios.get('http://b34e5e32.ngrok.io/api/getafact/' + this.state.text)
       .then(res => {
         console.log(res.data)
-        Alert.alert(res.data);
+        // Alert.alert(res.data);
         // this.pushNotification(res.data);
         this.state.nextPush = res.data;
       })
