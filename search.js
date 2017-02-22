@@ -84,8 +84,9 @@ class Search extends Component {
           Insert item code:
         </Text>
         <TextInput
-          style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
+          style={{height: 40, width:200, borderColor: 'white', borderWidth: 1, backgroundColor: 'white'}}
           onChangeText={(text) => this.setState({text})}
+          underlineColorAndroid="white"
           value={this.state.text}
         />
         <TouchableHighlight onPress={this.onSaveTopic.bind(this)} style={styles.button}>
